@@ -4,7 +4,9 @@ import 'package:podcast_player/model/podcast.dart';
 import 'package:podcast_player/widgets/category_item.dart';
 
 class CategoriesBar extends StatefulWidget {
-  const CategoriesBar({super.key});
+  const CategoriesBar(this.changeByCategory, {super.key,});
+
+  final void Function(List<Podcast> changeCategory) changeByCategory;
 
   @override
   State<CategoriesBar> createState() {
@@ -21,7 +23,8 @@ class _CategoriesState extends State<CategoriesBar> {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
-          for (var value in Categories.values) CategoryItem(category: value),
+          for (var value in Categories.values) 
+          CategoryItem(myCategory: value, changeByCategory: widget.changeByCategory,),
         ],
       ),
     );

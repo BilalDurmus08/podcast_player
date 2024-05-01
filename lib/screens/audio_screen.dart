@@ -86,7 +86,9 @@ class _AudioScreenState extends State<AudioScreen> {
             const SizedBox(width: 55),
             Column(
               children: [
-               const SizedBox(height: 35,),
+                const SizedBox(
+                  height: 35,
+                ),
                 Text(
                   widget.podcast.podcastName,
                   style: Theme.of(context).textTheme.titleLarge,
@@ -107,7 +109,6 @@ class _AudioScreenState extends State<AudioScreen> {
                 ),
               ],
             ),
-          
           ],
         ),
       ),

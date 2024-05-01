@@ -16,7 +16,7 @@ class _MyTextFieldState extends State<MyTextField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20, top: 32, bottom: 15),
+      padding: const EdgeInsets.only(left: 20, right: 20, top: 28, bottom: 5),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),

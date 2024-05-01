@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:podcast_player/data/podcasts.dart';
 import 'package:podcast_player/model/podcast.dart';
 import 'package:podcast_player/widgets/podcast_grid_item.dart';
 
 class Albums extends StatefulWidget {
-  const Albums({super.key});
+  const Albums({super.key, required this.myPodcasts});
+
+  final List<Podcast> myPodcasts;
 
   @override
   State<Albums> createState() {
@@ -33,7 +34,7 @@ class _AlbumsState extends State<Albums> {
           mainAxisSpacing: 0,
         ),
         children: [
-          for (Podcast podcast in podcasts)
+          for (Podcast podcast in widget.myPodcasts)
             PodcastGridItem(
               podcast: podcast,
             ),
@@ -42,23 +43,22 @@ class _AlbumsState extends State<Albums> {
     );
     landscapeMode = SizedBox(
       height: 500,
-      width: 800,
+      width: 600,
       child: GridView(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 4,
+          crossAxisCount: 3,
           childAspectRatio: 0.70,
           crossAxisSpacing: 0,
           mainAxisSpacing: 0,
         ),
         children: [
-          for (Podcast podcast in podcasts)
+          for (Podcast podcast in widget.myPodcasts)
             PodcastGridItem(
               podcast: podcast,
             ),
         ],
       ),
     );
-
 
     currentModeWidget = portraitMode;
 
